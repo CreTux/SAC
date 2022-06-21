@@ -1,7 +1,14 @@
-<?php
-  include_once 'header.php';
-?>
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <title>SAC</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/css/style.css" />
+</head>
+<body>
 <figure>
     <img src="libs/images/Logo_CDMX.png" alt="Logo CDMX" class="logocdmx" />
     <img src="libs/images/Logo_Dependencia.png" alt="Logo CAPREPA" class="logocdmx">
@@ -18,22 +25,23 @@
          echo $errorLogin;
        }
      ?>    
-        <div class="login">
-            <input type="text" name="login_usuario" require>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Usuario</label>
-        </div>
-        <div class="login">
-            <input type="password" name="password_usuario"  require>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Contraseña</label>
-        </div>
-        <div class="center-item">
-            <input type="submit" value="Entrar">
-        </div>
+          <div class="data">
+                <label for="usser">Usuario</label>
+                <input type="text" name="login_usuario" require>
+                <span class="bar"></span>
+            </div>
+            <div class="data">
+                <label for="passwd">Contraseña</label>
+                <input type="password" name="password_usuario"  require>
+                <span class="bar"></span>
+            </div>
+            <div class="submit">
+                <input type="submit" value="Entrar">
+            </div>
 
     </form>
 </main>
+</body>
+</html>
  
+
