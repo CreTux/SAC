@@ -1,48 +1,56 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>AC</title>	
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
-    <link rel="stylesheet" href="libs/css/main.css" />
-    <link rel="stylesheet" href="libs/css/style.css" />
-  </head>
-  <body>
-  
-    <header id="header">      
-      <div class="header-content">      
-      <div class="pull-right clearfix">
-        <ul class="info-menu list-inline list-unstyled">
-          <li class="profile">
-            <a href="#" data-toggle="dropdown" class="toggle" aria-expanded="false"></a>
-            <ul class="dropdown-menu">
-              <li>
-                  <a href="profile.php?id=<?php echo (int)$user['id'];?>">
-                      <i class="glyphicon glyphicon-user"></i>
-                      Perfil
-                  </a>
-              </li>
-             <li>
-                 <a href="edit_account.php" title="edit account">
-                     <i class="glyphicon glyphicon-cog"></i>
-                     Configuración
-                 </a>
-             </li>
-             <li class="last">
-                 <a href="logout.php">
-                     <i class="glyphicon glyphicon-off"></i>
-                     Salir
-                 </a>
-             </li>
-           </ul>
-          </li>
-        </ul>
-      </div>
-     </div>
-    </header>
-    <div class="sidebar">
-      
+<html lang="es">
 
-<div class="page">
-  <div class="container-fluid">
+<?php 
+include_once 'includes/usuario.php';
+include_once 'includes/sesion_usuario.php';
+
+$sesion_usuario = new sesionUsuario();
+$nombre_usuario = new Usuario();
+
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAC</title>
+    <link rel="stylesheet" href="libs/css/style.css" />
+</head>
+
+<body>
+
+    <header>        
+        <div class="header__superior">
+            <div class="logo">
+                <img src="libs/images/Logo_CDMX.png" alt="">
+                <img src="libs/images/Logo_Dependencia.png" alt="">
+            </div>
+            <div class="menu">                
+                  <p>Bienvenido: <?php echo $nombre_usuario->obtenNombre(); ?></p>                  
+                  <p><a href="includes/logout.php">Cerrar sesión</a></p>
+                                  
+            </div>                        
+        </div>
+        <div class="container__menu">
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="vistas/home.php">Inicio</a></li>
+                        <li><a href="#">Recursos Materiales</a>
+                            <ul>
+                                <li><a href="vistas/home.php">Resgistro Requisiciones</a></li>
+                                <li><a href="#">Inventario</a></li>
+                                <li><a href="rm_consulta.php">Consulta</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Recursos Humanos</a></li>
+                        <li><a href="#">Presupuesto</a></li>
+                        <li><a href="#">Contabilidad</a></li>
+                        <li><a href="#">Tesoreria</a></li>
+                        <li><a href="#">Reportes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+    </header>

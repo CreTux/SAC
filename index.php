@@ -68,7 +68,7 @@ $nombre_usuario = new Usuario();
           }
           else if($tiempo_EnSesion <= 60){
             $enLinea = 'En línea';
-            include_once 'vistas/home.php';
+            include_once 'vistas/rm_registro.php'; //home
           }             
     }    
 } 
