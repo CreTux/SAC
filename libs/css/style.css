@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(203, 203, 203, 1) 100%);
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(203, 203, 203, 1) 100%);
+}
+
+
+/* INDEX */
+
+.logocdmx {
+    width: 30%;
+    height: 30%;
+    margin: 0px auto;
+}
+
+.title_index {
+    text-align: center;
+    font-size: 40px;
+    color: #9F2241;
+    text-shadow: 0px 9px 9px #BC955C;
+}
+
+.loging-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+}
+
+.loging-form p {
+    text-align: center;
+    padding: 50px 52px 60px 0;
+    font-size: 35px;
+    COLOR: #9F2241;
+    text-shadow: 0px 9px 9px#BC955C;
+}
+
+.loging-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.data {
+    position: relative;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+}
+
+.data label {
+    display: flex;
+    color: #9F2241;
+    text-shadow: 0px 9px 9px#BC955C;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    margin-left: 10px;
+    flex-direction: column;
+}
+
+.data input {
+    display: flex;
+    text-align: center;
+    color: #BC955C;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    width: 90%;
+    height: 30px;
+    padding-left: 30px;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.bar {
+    position: absolute;
+    display: block;
+    width: 90%;
+    border-bottom: .1px solid #9F2241;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.submit input[type="submit"] {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #9F2241;
+    background: #9F2241;
+}
+
+.submit input[type="submit"]:hover {
+    background: #fff;
+    color: #9F2241;
+}
+
+
+/*HEADER*/
+
+.header__superior {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header__index {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.header__index>div {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.logo img {
+    width: 250px;
+}
+
+.logo__index img {
+    width: 550px;
+}
+
+.search input {
+    width: 300px;
+}
+
+.title__index {
+    padding: 40px;
+    top: 50px;
+    text-align: center;
+    color: #98989A;
+    font-size: 25px;
+}
+
+
+/*BARRA MEMU*/
+
+.container__menu {
+    width: 100%;
+    height: 100%;
+    background: #9F2241;
+    padding: 0px 300px;
+}
+
+.meu {
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+nav {
+    height: 100%;
+}
+
+nav>ul {
+    height: 100%;
+    display: flex;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav>ul>li>a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-left: 50px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+}
+
+nav>ul>li>a:hover {
+    transform: scale(1.1);
+    background: #E26B6B;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+}
+
+
+/* SUBMENU*/
+
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    padding: 14px 0;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+}
+
+nav ul li ul::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul a {
+    display: block;
+    color: #9F2241;
+    padding: 6px;
+    padding-left: 14px;
+    font-size: 14;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul a:hover {
+    background: #E26B6B;
+    color: white;
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-style: 14px;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+}
+
+
+/* BANNER HOME*/
+
+.banner__index {
+    margin: 300px 400px;
+    padding: 80px;
+    position: absolute;
+}
+
+.banner__index img {
+    width: 850px;
+}
+
+
+/*FOMULARIO DE REQISICION*/
+
+#rm_registro {
+    margin-top: 180px;
+}
+
+#rm_registro h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#rm_registro section {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 40px;
+    background: #fff;
+}
+
+#rm_registro section p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 300px;
+}
+
+#rm_registro form {
+    display: flex;
+    padding: 1rem 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000%;
+}
+
+#rm_registro form section {
+    padding: 0px;
+    margin: 20px -18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: 0.5rem 0;
+    align-items: center;
+}
+
+.field label {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.field input {
+    font-size: 1.1rem;
+    width: 80%;
+    height: 2.2rem;
+    padding-left: 0.5rem;
+    border: 2px solid #98989A;
+    color: #98989A;
+    border-radius: 5px;
+}
+
+.field input[type="date"] {
+    color: #98989A;
+    font-size: 1.1rem;
+    width: 80%;
+    height: 2.2rem;
+    padding-left: 0.5rem;
+    border: 2px solid #98989A;
+    border-radius: 5px;
+}
+
+.field select {
+    font-size: 1.1rem;
+    height: 2.6rem;
+    padding-left: 0.5rem;
+    border: 2px solid #98989A;
+    border-radius: 5px;
+    color: #98989A;
+    width: 80%;
+}
+
+.textbox {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    margin: 0.75rem 0;
+    align-items: center;
+}
+
+#rm_registro form textarea {
+    font-size: 1.1rem;
+    max-width: 100%;
+    max-height: 10rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    border: 2px solid #98989A;
+    border-radius: 5px;
+    color: #98989A;
+    width: 515px;
+    height: 181px;
+}
+
+.textbox label {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+
+/* CONSULTA_TABLE*/
+
+
+/*   color variables */
+
+:root {
+    --clr-primary: #81d4fa;
+    --animation: #e1f5fe;
+    --clr-primary-dark: #4fc3f7;
+    --clr-gray100: #f9fbff;
+    --clr-gray150: #f4f6fb;
+    --clr-gray200: #eef1f6;
+    --clr-gray300: #e1e5ee;
+    --clr-gray400: #767b91;
+    --clr-gray500: #4f546c;
+    --clr-gray600: #2a324b;
+    --clr-gray700: #161d34;
+    --clr-pending: #fff0c2;
+    --clr-pending-font: #a68b00;
+    --clr-unpaid: #ffcdd2;
+    --clr-unpaid-font: #c62828;
+    --clr-paid: #c8e6c9;
+    --clr-paid-font: #388e3c;
+    --clr-link: #2962ff;
+    --radius: 0.2rem;
+}
+
+#rm_consulta {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-gray500);
+    font-size: 0.9rem;
+    margin-top: 180px;
+}
+
+#rm_consulta section {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 40px;
+    background: #fff;
+}
+
+#rm_consulta section h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#rm_consulta table {
+    border-collapse: collapse;
+    box-shadow: 0px 5px 0px var(--clr-gray300);
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+}
+
+.table_consulta {
+    padding-top: 20px;
+}
+
+.table_consulta thead {
+    box-shadow: 0px 5px 0px var(--clr-gray300);
+}
+
+.table_consulta th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.table_consulta td {
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.table_consulta a {
+    text-decoration: none;
+    color: var(--clr-link)
+}
