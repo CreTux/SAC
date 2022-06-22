@@ -41,15 +41,12 @@ $nombre_usuario = new Usuario();
                 <nav>
                     <ul>
                         <li><a href="/armonizacion_contable/views/home.php">Inicio</a>
-                        <ul>
-                            <li><a href="#">Cerrar Sesion</a></li>
-                        </ul>
                     </li>
                         <li><a href="#">Recursos Materiales</a>
                             <ul>
                                 <li><a href="/armonizacion_contable/views/rm_registro.php">Resgistro Requisiciones</a></li>
                                 <li><a href="#">Inventario</a></li>
-                                <li><a href="#">Consulta</a></li>
+                                <li><a href="/armonizacion_contable/views/rm_consulta.php">Consulta</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Recursos Humanos</a></li>
