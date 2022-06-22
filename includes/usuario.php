@@ -8,6 +8,8 @@ class Usuario extends DB{
     private $login_usuario;
     private $id_usuario;  
         
+    //Funcion para buscar un usuario en la base de datos, recibiendo los 
+    //datos del usuario que se va a buscar del formulario de login.
 
     public function buscaUsuario($login, $pass){
         $md5pass = md5($pass);
@@ -22,6 +24,7 @@ class Usuario extends DB{
         }
     }
 
+    //F
     public function estableceUsuario($login){
         $query = $this->conecta_db()->prepare('SELECT * FROM usuarios WHERE login_usuario = :login');
         $query->execute(['login' => $login]);
