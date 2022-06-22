@@ -1,4 +1,14 @@
-<?php include_once './layouts/header.php'; ?>
+<?php 
+include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/includes/db.php');
+include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/includes/usuario.php');
+include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/includes/sesion_usuario.php');
+include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php');
+
+$conexion_db    = new DB();
+$sesion_usuario = new sesionUsuario();
+$nombre_usuario = new Usuario(); 
+
+?>
 
     <main id="rm_consulta">
         <section>
@@ -93,4 +103,4 @@
         </section>
     </main>
 
-    <?php include_once './layouts/footer.php'; ?>
+    <?php include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/footer.php'); ?>

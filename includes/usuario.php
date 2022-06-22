@@ -1,6 +1,6 @@
 <?php
 
-include_once 'db.php';
+include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/includes/db.php');
 
 class Usuario extends DB{
 
