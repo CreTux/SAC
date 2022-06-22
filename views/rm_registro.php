@@ -1,6 +1,11 @@
 <?php 
 //include_once '\views\header.php';
 include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php');
+$conexion_db    = new DB();
+$sesion_usuario = new sesionUsuario();
+$nombre_usuario = new Usuario();
+$conexion_db->conecta_db();
+$conexionDb = $conexion_db->conecta_db();
 ?>
     <main id="rm_registro">
         <section>
@@ -43,14 +48,16 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                     <section>
                         <div class="field">
                             <label for="">unidad de medida</label>                     
+                               
                             <select name="umedida_req" require>
                                <option value="">Seleccione una opción</option> 
-                               <?php 
-                                  $u_media = pg_query($conexionDb, "SELECT * FROM cat_unidad_medida ORDER BY desc_unidad_medida ASC");                                   
-                                  while($id_medida = pg_fetch_array($u_media)){
-                                  echo'<OPTION VALUE="'.$id_medida['id_unidad_medida'].'">'.$id_medida['desc_unidad_medida'].'</OPTION>';
+                               <?php                                     
+                                  $u_medida = $conexionDb->prepare("SELECT * FROM cat_unidad_medida ORDER BY desc_unidad_medida ASC");                                                                     
+                                  $u_medida->execute();
+                                  foreach($u_medida as $id_medida){                                    
+                                    echo'<option value = " '.$id_medida['id_unidad_medida'].' ">'.$id_medida['desc_unidad_medida'].'</option>';
                                   }
-                               ?>   
+                               ?>                               
                             </select>
                         </div>                        
                         <div class="field">
@@ -61,10 +68,11 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                             <label for="">partida presupuestal</label>                                                          
                             <select name="ppresupuestal" require>                               
                             <option value="">Seleccione una opción</option>                               
-                               <?php 
-                                  $p_presupuestal = pg_query($conexionDb, "SELECT * FROM cat_ppresupuestal ORDER BY desc_ppresupuestal ASC");                                   
-                                  while($id_ppresupuestal = pg_fetch_array($p_presupuestal)){
-                                  echo'<option value="'.$id_ppresupuestal['id_ppresupuestal'].'">'.$id_ppresupuestal['desc_ppresupuestal'].'</option>';
+                               <?php                                    
+                                  $p_presupuestal = $conexionDb->prepare("SELECT * FROM cat_ppresupuestal ORDER BY desc_ppresupuestal ASC");                                                                     
+                                  $p_presupuestal->execute();                                  
+                                  foreach($p_presupuestal as $id_ppresupuestal){
+                                    echo'<option value= " '.$id_ppresupuestal['id_ppresupuestal'].' ">'.$id_ppresupuestal['desc_ppresupuestal'].'</option>';
                                   }
                                ?>   
                             </select>
@@ -75,8 +83,9 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                             <select name="surtimiento_req" require>                                
                                 <option value="">Seleccione una opción</option>                               
                                <?php 
-                                  $surtimiento = pg_query($conexionDb, "SELECT * FROM cat_surtimiento ORDER BY desc_surtimiento ASC");                                   
-                                  while($id_surtimiento = pg_fetch_array($surtimiento)){
+                                  $surtimiento = $conexionDb->prepare("SELECT * FROM cat_surtimiento ORDER BY desc_surtimiento ASC");                                   
+                                  $surtimiento->execute();                                                                  
+                                  foreach( $surtimiento as $id_surtimiento){
                                   echo'<option value="'.$id_surtimiento['id_surtimiento'].'">'.$id_surtimiento['desc_surtimiento'].'</option>';
                                   }
                                ?>  
@@ -92,9 +101,10 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                             <select name="solicita_req" require>
                                 <option value="">Seleccione una opción</option>
                                 <?php 
-                                  $c_solicita = pg_query($conexionDb, "SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_solicita, id_area_usuario FROM usuarios 
-                                                                       WHERE id_area_usuario = 6 AND id_estatus_usuario = 1 ORDER BY id_area_usuario ASC");                                   
-                                  while($id_solicita = pg_fetch_array($c_solicita)){
+                                  $c_solicita = $conexionDb->prepare("SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_solicita, id_area_usuario FROM usuarios 
+                                  WHERE id_area_usuario = 6 AND id_estatus_usuario = 1 ORDER BY id_area_usuario ASC");
+                                  $c_solicita->execute();                                 
+                                  foreach($c_solicita as $id_solicita){
                                   echo'<option value="'.$id_solicita['id_usuario'].'">'.$id_solicita['nombre_solicita'].'</option>';
                                   }
                                ?>  
@@ -109,9 +119,10 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                             <select name="revisa_req" require>
                                 <option value="">Seleccione una opción</option>
                                 <?php 
-                                  $c_revisa = pg_query($conexionDb, "SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_revisa, id_area_usuario FROM usuarios 
-                                                                       WHERE id_area_usuario = 4 OR id_area_usuario = 2 AND id_estatus_usuario = 1 ORDER BY id_area_usuario DESC");                                   
-                                  while($id_revisa = pg_fetch_array($c_revisa)){
+                                  $c_revisa = $conexionDb->prepare("SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_revisa, id_area_usuario FROM usuarios 
+                                  WHERE id_area_usuario = 4 OR id_area_usuario = 2 AND id_estatus_usuario = 1 ORDER BY id_area_usuario DESC");                                   
+                                  $c_revisa->execute();
+                                  foreach($c_revisa as $id_revisa){
                                   echo'<option value="'.$id_revisa['id_usuario'].'">'.$id_revisa['nombre_revisa'].'</option>';
                                   }
                                ?>  
@@ -125,13 +136,13 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/header.php
                             <label for="">autoriza</label>
                             <select name="autoriza_req" require>
                                 <option value="">Seleccione una opción</option>
-                                <optio<?php 
-                                  $c_autoriza = pg_query($conexionDb, "SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_autoriza, id_area_usuario FROM usuarios 
+                                <?php                                                       
+                                $c_autoriza = $conexionDb->prepare("SELECT nombre_usuario||' '||apepat_usuario||' '||apemat_usuario AS nombre_autoriza, id_area_usuario FROM usuarios 
                                                                        WHERE id_area_usuario = 2 AND id_estatus_usuario = 1 ORDER BY id_area_usuario DESC");                                   
-                                  while($id_autoriza = pg_fetch_array($c_autoriza)){
-                                    $id_autoriza['id_area_usuario'];
+                                $c_autoriza->execute();
+                                foreach($c_autoriza as $id_autoriza){                                   
                                     echo'<option value="'.$id_autoriza['id_usuario'].'">'.$id_autoriza['nombre_autoriza'].'</option>';
-                                  }
+                                }    
                                ?>  
                             </select>
                         </div>
