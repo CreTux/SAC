@@ -65,14 +65,14 @@ header {
     width: 100%;
 }
 
-.data {
+.formulario__grupo {
     position: relative;
     text-align: center;
     height: 100px;
     width: 100%;
 }
 
-.data label {
+.formulario__label {
     display: flex;
     color: #9F2241;
     text-shadow: 0px 9px 9px#BC955C;
@@ -84,7 +84,11 @@ header {
     flex-direction: column;
 }
 
-.data input {
+.formulario__grupo-input {
+    position: relative;
+}
+
+.formulario__input {
     display: flex;
     text-align: center;
     color: #BC955C;
@@ -500,3 +504,35 @@ nav ul li ul a:hover {
     text-decoration: none;
     color: var(--clr-link)
 }
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+
+/* .formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+} */
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+}
+
+
+/* .formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+} */

@@ -1,97 +1,70 @@
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
 
-function suggetion() {
+const expresiones = {
+    usuario: /^[a-zA-Z0-9\_\-]{6,6}$/, // Letras, numeros, guion y guion_bajo
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{4,12}$/, // 4 a 12 digitos.
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+};
 
-     $('#sug_input').keyup(function(e) {
+const campos = {
+    usuario: false,
+    nombre: false,
+    password: false,
+    correo: false,
+    telefono: false
+}
 
-         var formData = {
-             'product_name' : $('input[name=title]').val()
-         };
+const validarFormulario = (e) => {
+    switch (e.target.name) {
+        case 'usuario':
+            validarCampo(expresiones.usuario, e.target, 'usuario');
+            break;
+        case 'password':
+            validarCampo(expresiones.password, e.target, 'password');
+            break;
 
-         if(formData['product_name'].length >= 1){
+    }
+}
 
-           // process the form
-           $.ajax({
-               type        : 'POST',
-               url         : 'ajax.php',
-               data        : formData,
-               dataType    : 'json',
-               encode      : true
-           })
-               .done(function(data) {
-                   //console.log(data);
-                   $('#result').html(data).fadeIn();
-                   $('#result li').click(function() {
+function validarCampo(expresiones, input, campo) {
+    if (expresiones.test(input.value)) {
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+        campos[campo] = true;
+    } else {
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+        document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+        document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+        campos[campo] = false;
+    }
+}
 
-                     $('#sug_input').val($(this).text());
-                     $('#result').fadeOut(500);
+inputs.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
+});
 
-                   });
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-                   $("#sug_input").blur(function(){
-                     $("#result").fadeOut(500);
-                   });
+    if (campos.usuario && campos.password) {
+        formulario.reset();
 
-               });
+        //     document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+        //     setTimeout(() => {
+        //         document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+        //     }, 5000);
 
-         } else {
-
-           $("#result").hide();
-
-         };
-
-         e.preventDefault();
-     });
-
- }
-  $('#sug-form').submit(function(e) {
-      var formData = {
-          'p_name' : $('input[name=title]').val()
-      };
-        // process the form
-        $.ajax({
-            type        : 'POST',
-            url         : 'ajax.php',
-            data        : formData,
-            dataType    : 'json',
-            encode      : true
-        })
-            .done(function(data) {
-                //console.log(data);
-                $('#product_info').html(data).show();
-                total();
-                $('.datePicker').datepicker('update', new Date());
-
-            }).fail(function() {
-                $('#product_info').html(data).show();
-            });
-      e.preventDefault();
-  });
-  function total(){
-    $('#product_info input').change(function(e)  {
-            var price = +$('input[name=price]').val() || 0;
-            var qty   = +$('input[name=quantity]').val() || 0;
-            var total = qty * price ;
-                $('input[name=total]').val(total.toFixed(2));
-    });
-  }
-
-  $(document).ready(function() {
-
-    //tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-
-    $('.submenu-toggle').click(function () {
-       $(this).parent().children('ul.submenu').toggle(200);
-    });
-    //suggetion for finding product names
-    suggetion();
-    // Callculate total ammont
-    total();
-
-    $('.datepicker')
-        .datepicker({
-            format: 'yyyy-mm-dd',
-            todayHighlight: true,
-            autoclose: true
-        });
-  });
+        //     document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+        //         icono.classList.remove('formulario__grupo-correcto');
+        //     });
+        // } else {
+        //     document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+    }
+});
