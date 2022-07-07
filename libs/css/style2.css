@@ -387,7 +387,8 @@ nav ul li ul a:hover {
     color: var(--primario)
 }
 
-.formulario__validacion-estado {
+
+/*.formulario__validacion-estado {
     position: absolute;
     right: 60px;
     bottom: 10px;
@@ -397,7 +398,7 @@ nav ul li ul a:hover {
 }
 
 
-/* ----- -----  Estilos para Validacion ----- ----- */
+
 
 .formulario__grupo-correcto .formulario__validacion-estado {
     color: #1ed12d;
@@ -407,7 +408,7 @@ nav ul li ul a:hover {
 
 /* .formulario__grupo-incorrecto .formulario__label {
     color: #bb2929;
-} */
+
 
 .formulario__grupo-incorrecto .formulario__validacion-estado {
     color: #bb2929;
