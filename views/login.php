@@ -24,11 +24,11 @@
 
         <form method="post" action="" id="formulario">
 
-        <?php
-                if(isset($errorLogin)){
-                    echo $errorLogin;
-                }
-        ?>    
+            <?php
+            if (isset($errorLogin)) {
+                echo $errorLogin;
+            }
+            ?>
             <!-- Grupo usuario -->
             <div class="formulario__grupo" id="grupo__usuario">
                 <label for="usuario" class="formulario__label">Usuario</label>
@@ -37,7 +37,7 @@
                     <i class="formulario__validacion-estado fa fa-times-circle"></i>
                     <span class="bar"></span>
                 </div>
-                
+
             </div>
 
             <!-- Grupo contraseña -->
@@ -45,11 +45,11 @@
             <div class="formulario__grupo" id="grupo__password">
                 <label for="password" class="formulario__label">Contraseña</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="password" id="password">
+                    <input type="password" class="formulario__input" name="password" id="password">
                     <i class="formulario__validacion-estado fa fa-times-circle"></i>
                     <span class="bar"></span>
                 </div>
-                
+
             </div>
             <div class="submit">
                 <input type="submit" value="Entrar">
@@ -57,7 +57,7 @@
         </form>
     </main>
 
-    <script src="/armonizacion_contable/libs/js/functions.js"></script>
+    <!-- <script src="/armonizacion_contable/libs/js/functions.js"></script> -->
 </body>
 
 </html>

@@ -1,0 +1,420 @@
+/* Tipo de letra */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+/*Paleta de Colores*/
+
+:root {
+    --primario: #9F2241;
+    --secundario: #BC955C;
+    --terciario: #98989A;
+    --blanco: #FFFFFF;
+}
+
+h2,
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* Globales */
+
+html {
+    /* 1rem = 10px */
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    text-decoration: none;
+}
+
+body {
+    /*1rem = 10px; */
+    font-size: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(203, 203, 203, 1) 100%);
+}
+
+.contenedor {
+    max-width: 160rem;
+    margin: 2rem auto;
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.53);
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.53);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.boton input[type="submit"] {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid #9F2241;
+    background: #9F2241;
+}
+
+.boton input[type="submit"]:hover {
+    background: #fff;
+    color: #9F2241;
+}
+
+
+/* Cabecera */
+
+.cabecera {
+    max-width: 100%;
+}
+
+.cabecera__superior {
+    display: flex;
+    height: 10rem;
+    justify-content: space-between;
+}
+
+.logo__cdmx,
+.logo__caprepa {
+    width: 120rem;
+}
+
+.logo__cdmx img {
+    width: 100%;
+    height: 10rem;
+}
+
+.logo__caprepa img {
+    width: 100%;
+    height: 10rem;
+}
+
+.cabecera__contenido {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Navegacion Principal */
+
+.navegacion__principal {
+    width: 100%;
+    height: 5rem;
+    background: var(--primario);
+    padding: 0px 300px;
+}
+
+nav {
+    height: 100%;
+}
+
+nav>ul {
+    height: 100%;
+    display: flex;
+}
+
+nav ul li {
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+
+nav>ul>li>a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-left: 50px;
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+}
+
+nav>ul>li>a:hover {
+    transform: scale(1.1);
+    background: #E26B6B;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+}
+
+
+/* SUBMENU*/
+
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blanco);
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    padding: 14px 0;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 50px;
+}
+
+nav ul li ul::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid var(--blanco);
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+
+nav ul li ul a {
+    display: block;
+    color: var(--primario);
+    padding: 6px;
+    padding-left: 14px;
+    font-size: 14;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+
+nav ul li ul a:hover {
+    background: #E26B6B;
+    color: var(--blanco);
+    transform: scale(1.1);
+    padding-left: 30px;
+    font-style: 14px;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0, 0.5);
+}
+
+
+/* BANNER HOME*/
+
+.banner__index {
+    padding: 80px;
+    position: absolute;
+    top: 30rem;
+    left: 50rem;
+}
+
+.banner__index img {
+    width: 850px;
+}
+
+
+/** Formulario Requisicion **/
+
+.formulario__requisicion {
+    display: flex;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.formulario__requisicion form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1rem;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.formulario__requisicion form .textarea:nth-child(6) {
+    grid-column: 1 / 3;
+}
+
+.formulario__requisicion form .textarea:nth-child(7) {
+    grid-column: 4 / 6;
+}
+
+.formulario__requisicion form .field:nth-child(14) {
+    grid-column: 3 / 4;
+}
+
+.formulario__requisicion form .field:nth-child(15) {
+    grid-column: 5 / 6;
+}
+
+.formulario__requisicion form .field .selected {
+    width: 100%;
+}
+
+.formulario__requisicion form .boton {
+    grid-column: 3 / 4;
+}
+
+.formulario__requisicion .field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15rem;
+    margin: 0.5rem 0;
+    align-items: center;
+    justify-content: center
+}
+
+.formulario__requisicion .textarea {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15rem;
+    margin: 0.5rem 0;
+    align-items: center;
+}
+
+.formulario__requisicion .textarea label {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    text-align: center;
+}
+
+.formulario__requisicion .textarea textarea {
+    font-size: 1.3rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    border: 2px solid var(--secundario);
+    border-radius: 5px;
+    color: var(--terciario);
+    width: 40rem;
+}
+
+.formulario__requisicion .field label {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
+
+.formulario__requisicion .field input {
+    font-size: 1.3rem;
+    width: 80%;
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    border: 2px solid var(--secundario);
+    color: var(--terciario);
+    border-radius: 0.5rem;
+}
+
+.field input[type="date"] {
+    color: var(--terciario);
+    font-size: 1.3rem;
+    width: 80%;
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    border: 2px solid var(--secundario);
+    border-radius: 0.5rem;
+}
+
+.field select {
+    font-size: 1.3rem;
+    height: 2.5rem;
+    padding-left: 0.5rem;
+    border: 2px solid var(--secundario);
+    border-radius: 0.5rem;
+    color: var(--terciario);
+    background-color: var(--blanco);
+    width: 80%;
+}
+
+.formulario__requisicion .boton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/** CONSULTA REGISTRO REQUISICIONES **/
+
+.contenedor table {
+    border-collapse: collapse;
+    box-shadow: 0px 5px 0px var(--secundario);
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+}
+
+.table_consulta {
+    padding-top: 20px;
+    color: var(--terciario);
+}
+
+.table_consulta thead {
+    box-shadow: 0px 5px 0px var(--secundario);
+}
+
+.table_consulta th {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+.table_consulta td {
+    padding: 1rem 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.table_consulta a {
+    color: var(--primario)
+}
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+
+/* .formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+} */
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+}
+
+
+/* .formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+} */

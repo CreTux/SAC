@@ -10,15 +10,15 @@ $nombre_usuario = new Usuario();
 
 //si las variables $_SESSION no estan vacias entonces  obtenemos los datos del usuario 
 //actual y redirecciona al home
-if(isset($_SESSION['login_usuario'])){
+if(isset($_SESSION['usuario'])){
     $nombre_usuario->estableceUsuario($sesion_usuario->obtenUsuarioActual()); 
     //include_once './views/home.php';
     include_once ($_SERVER['DOCUMENT_ROOT'].'/armonizacion_contable/views/home.php');
 }
   //Si  las variables de $_POST no estan vacias, entonces se guardan en las variables usuaForm y passForm.
-else if(isset($_POST['login_usuario']) && isset($_POST['password_usuario'])){
-    $usuaForm = $_POST['login_usuario'];
-    $passForm = $_POST['password_usuario'];
+else if(isset($_POST['usuario']) && isset($_POST['password'])){
+    $usuaForm = $_POST['usuario'];
+    $passForm = $_POST['password'];
 
     //Si el usuario existe en la base de datos, entonces:
     if($nombre_usuario->buscaUsuario($usuaForm, $passForm)){
